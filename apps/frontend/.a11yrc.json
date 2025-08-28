@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "color-contrast": "warn",
+    "label": "warn",
+    "alt-text": "warn"
+  }
+}

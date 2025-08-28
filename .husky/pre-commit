@@ -1,0 +1,14 @@
+#!/bin/sh
+# Created automatically by Cursor AI (2024-08-27)
+
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running pre-commit checks..."
+
+# Lint all TypeScript files
+npm run lint
+
+# Format code with Prettier
+npx prettier --write "**/*.{js,ts,jsx,tsx,json,md}"
+
+echo "Pre-commit checks completed!"

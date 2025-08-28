@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100;
+  }
+  
+  .btn-success {
+    @apply bg-success-600 hover:bg-success-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-success-500 focus:ring-offset-2;
+  }
+  
+  .btn-danger {
+    @apply bg-danger-600 hover:bg-danger-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-danger-500 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+  }
+  
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-success-100 text-success-800 dark:bg-success-900 dark:text-success-200;
+  }
+  
+  .badge-warning {
+    @apply bg-warning-100 text-warning-800 dark:bg-warning-900 dark:text-warning-200;
+  }
+  
+  .badge-danger {
+    @apply bg-danger-100 text-danger-800 dark:bg-danger-900 dark:text-danger-200;
+  }
+  
+  .badge-info {
+    @apply bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+}
+
+/* PrimeReact Dark Mode Overrides */
+.dark .p-component {
+  @apply text-gray-100;
+}
+
+.dark .p-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-button {
+  @apply bg-primary-600 border-primary-600 hover:bg-primary-700 hover:border-primary-700;
+}
+
+.dark .p-inputtext {
+  @apply bg-gray-700 border-gray-600 text-gray-100;
+}
+
+.dark .p-dropdown {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .p-dropdown-items {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .p-dropdown-item {
+  @apply text-gray-100 hover:bg-gray-600;
+}
+
+.dark .p-datatable {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-datatable-header {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .p-datatable-thead > tr > th {
+  @apply bg-gray-700 border-gray-600 text-gray-100;
+}
+
+.dark .p-datatable-tbody > tr {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-datatable-tbody > tr > td {
+  @apply border-gray-700 text-gray-100;
+}
+
+.dark .p-datatable-tbody > tr:hover {
+  @apply bg-gray-700;
+}
+
+.dark .p-sidebar {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-menubar {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-menuitem-link {
+  @apply text-gray-100 hover:bg-gray-700;
+}
+
+.dark .p-dialog {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-dialog-header {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .p-dialog-content {
+  @apply bg-gray-800;
+}
+
+.dark .p-toast {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .p-toast-message {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .p-toast-message-content {
+  @apply text-gray-100;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}

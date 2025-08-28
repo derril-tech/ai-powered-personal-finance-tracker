@@ -1,0 +1,339 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Finance Business Metrics",
+    "tags": ["finance", "business", "metrics"],
+    "style": "dark",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Active Households",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "household_accounts",
+            "legendFormat": "Households with accounts"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "displayMode": "single-stat"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Total Transactions",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(household_transactions)",
+            "legendFormat": "Total transactions"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "displayMode": "single-stat"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Active Budgets",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(household_budgets)",
+            "legendFormat": "Active budgets"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "displayMode": "single-stat"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 4,
+        "title": "Forecast Accuracy",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(forecast_accuracy_bucket[1h]))",
+            "legendFormat": "{{type}} - 50th percentile"
+          },
+          {
+            "expr": "histogram_quantile(0.90, rate(forecast_accuracy_bucket[1h]))",
+            "legendFormat": "{{type}} - 90th percentile"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Accuracy (%)",
+            "min": 0,
+            "max": 100
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 18,
+          "y": 0
+        }
+      },
+      {
+        "id": 5,
+        "title": "Anomaly Detection Performance",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(anomaly_detection_precision_bucket[1h]))",
+            "legendFormat": "{{type}} - Precision"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(anomaly_detection_recall_bucket[1h]))",
+            "legendFormat": "{{type}} - Recall"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Performance (%)",
+            "min": 0,
+            "max": 100
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 6,
+        "title": "User Engagement",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(user_actions_total[1h])",
+            "legendFormat": "{{action}}"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "Actions per hour",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      },
+      {
+        "id": 7,
+        "title": "Connector Success Rate",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "rate(connector_syncs_total{status=\"success\"}[1h]) / rate(connector_syncs_total[1h])",
+            "legendFormat": "{{provider}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 0.8},
+                {"color": "green", "value": 0.95}
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 8,
+        "title": "Import Success Rate",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "rate(import_jobs_total{status=\"completed\"}[1h]) / rate(import_jobs_total[1h])",
+            "legendFormat": "{{format}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "yellow", "value": 0.8},
+                {"color": "green", "value": 0.95}
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        }
+      },
+      {
+        "id": 9,
+        "title": "Report Generation Success",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "rate(reports_generated_total[1h])",
+            "legendFormat": "{{format}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 24
+        }
+      },
+      {
+        "id": 10,
+        "title": "Average Report File Size",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(report_file_size_bucket[1h]))",
+            "legendFormat": "{{format}} - 50th percentile"
+          }
+        ],
+        "yAxes": [
+          {
+            "label": "File Size (bytes)",
+            "min": 0
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 24
+        }
+      },
+      {
+        "id": 11,
+        "title": "Top User Actions",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "topk(10, sum by (action) (rate(user_actions_total[1h])))",
+            "format": "table",
+            "instant": true
+          }
+        ],
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "Time": true,
+                "__name__": true,
+                "job": true,
+                "instance": true
+              },
+              "renameByName": {
+                "action": "Action",
+                "Value": "Rate (per hour)"
+              }
+            }
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 32
+        }
+      },
+      {
+        "id": 12,
+        "title": "Error Distribution by Type",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (error_type) (rate(errors_total[1h]))",
+            "legendFormat": "{{error_type}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 32
+        }
+      }
+    ],
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "refresh": "1m"
+  }
+}

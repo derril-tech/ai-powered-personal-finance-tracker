@@ -1,0 +1,24 @@
+---
+description: Enforce DONE.md history when completing tasks from TODO.md
+globs:
+  - "TODO.md"
+  - "DONE.md"
+alwaysApply: true
+---
+
+# TODO → DONE WORKFLOW (MANDATORY)
+
+When a task in `TODO.md` is completed:
+
+1) **Do NOT delete the task.**  
+2) **Append it to `DONE.md`** under the correct Phase section, with:
+   - Date: `YYYY-MM-DD` (use repo timezone or UTC if unknown)
+   - Actor: `[Cursor]` or `[Claude]` (choose based on who performed the action)
+   - Exact task text
+
+**Entry format (exact):**
+- `[YYYY-MM-DD] [Cursor|Claude] <task text exactly as in TODO.md>`
+
+3) **Then remove it from `TODO.md`.**
+
+If the Phase section does not yet exist in `DONE.md`, **create it** using:

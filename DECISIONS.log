@@ -1,0 +1,6 @@
+# DECISIONS.log — Key choices
+
+[2025-08-28] Started Phase 4 implementation. Adopted minimal-diff CI/CD with GitHub Actions, matrix-free jobs per app, Trivy scanning, and environment-gated CD with blue/green placeholders.
+[2025-08-28] Implemented billing/usage with org-level subscriptions, add-ons, usage metrics, invoices, and payment methods. Tracked API usage via middleware (non-blocking).
+[2025-08-28] Added demo seeding script to populate synthetic org/household/accounts/transactions/budget/goals/report for local/dev demo.
+[2025-08-28] Rewrote README.md to include product overview, setup, security, observability, and roadmap.

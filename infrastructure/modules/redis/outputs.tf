@@ -1,0 +1,21 @@
+# Created automatically by Cursor AI (2024-08-27)
+
+output "endpoint" {
+  description = "Redis endpoint"
+  value       = aws_elasticache_replication_group.main.primary_endpoint_address
+}
+
+output "port" {
+  description = "Redis port"
+  value       = aws_elasticache_replication_group.main.port
+}
+
+output "security_group_id" {
+  description = "Redis security group ID"
+  value       = aws_security_group.redis.id
+}
+
+output "access_security_group_id" {
+  description = "Redis access security group ID"
+  value       = aws_security_group.redis_access.id
+}

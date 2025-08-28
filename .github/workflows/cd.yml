@@ -1,0 +1,38 @@
+# Created automatically by Cursor AI (2025-08-28)
+
+name: CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        type: environment
+        required: true
+      version:
+        description: 'Image tag/version to deploy'
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to cloud (placeholder)
+        run: echo "Login via OIDC/JWT to cloud provider"
+      - name: Set deployment strategy
+        run: echo "Blue/Green deploy to ${{ github.event.inputs.environment }} for version ${{ github.event.inputs.version }}"
+      - name: Run DB migrations (approval gated)
+        run: echo "Run migrations with approvals"
+      - name: Deploy API
+        run: echo "Deploy API image: ${{ github.event.inputs.version }}"
+      - name: Deploy Frontend
+        run: echo "Deploy Frontend image: ${{ github.event.inputs.version }}"
+      - name: Post-deploy smoke tests
+        run: echo "Run smoke tests against environment"

@@ -1,0 +1,12 @@
+---
+description: Documentation and conventional commits discipline
+---
+
+# COMMITS & DOCS
+
+- Use Conventional Commits (feat, fix, docs, refactor, chore, test).
+- After meaningful changes, update:
+  - PLAN.md (next 3 tasks)
+  - DECISIONS.log (what/why, date)
+  - ARCH.md (if architecture changed)
+- Keep README short with "Getting Started", "Run", "Test", and "Env vars".
